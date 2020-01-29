@@ -14,13 +14,13 @@ $(document).keypress(function() {
   }
 });
 
-$(".control").click(function() {
+/*$(".control").click(function() {
   if (!started) {
     $("#level-title").text("Level " + level);
     nextSequence();
     started = true;
   }
-});
+});*/
 
 $(".btn").click(function() {
 
