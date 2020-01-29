@@ -14,7 +14,7 @@ var level = 0;
   }
 });*/
 
-$(". control").click(function() {
+$(".control").click(function() {
   if (!started) {
     $("#level-title").text("Level " + level);
     nextSequence();
