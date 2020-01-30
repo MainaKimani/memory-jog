@@ -1,3 +1,8 @@
+if (screen.width <= 699) {
+document.location = "mobile.html";
+}
+console.log(screen.width);
+
 var buttonColours = ["red", "blue", "green", "yellow"];
 
 var gamePattern = [];
@@ -52,7 +57,7 @@ function checkAnswer(currentLevel) {
     }, 200);
 
 
-    $("#level-title").text("Game Over! Press Any Key to Restart");
+    $("#level-title").html("Game Over Bud! 🤣 <br> High Score: "+(level-1)+"<br> Press Any Key For a Rematch");
     startOver();
 
   }
@@ -75,9 +80,19 @@ function nextSequence() {
   gamePattern.push(randomChosenColour);
 console.log("randomChosenColour = "+randomChosenColour);
 console.log("gamePattern = "+gamePattern);
-  $("#" + randomChosenColour).fadeIn(100).fadeOut(100).fadeIn(100);
-  playSound(randomChosenColour);
+
+//This provides the entie pattern. Fetches data rom the array in time intervals
+  var alertLoop = function(i) {
+      if (gamePattern[i]) {
+        pattern = gamePattern[i];
+        $("#" + pattern).fadeIn(100).fadeOut(100).fadeIn(100);
+        playSound(pattern);
+          setTimeout(function(){alertLoop(i+1);}, 500);
+      }
+  }
+  alertLoop(0);
 }
+
 
 function playSound(name) {
   var audio = new Audio("sounds/" + name + ".mp3");

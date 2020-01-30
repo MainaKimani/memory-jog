@@ -29,6 +29,23 @@ body {
   opacity: 0.8;
 }
 
+.ctrl {
+  background-color: white;
+  margin: 25px;
+  display: inline-block;
+  height: 150px;
+  width: 150px;
+  border: 10px solid black;
+  border-radius: 20%;
+}
+.start{
+  display: inline-block;
+  padding-top: 70px;
+  text-align: center;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.5rem;
+}
+
 .red {
   background-color: red;
 }

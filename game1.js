@@ -6,21 +6,14 @@ var userClickedPattern = [];
 var started = false;
 var level = 0;
 
-$(document).keypress(function() {
+$(".ctrl").click(function() {
   if (!started) {
     $("#level-title").text("Level " + level);
+    $(".start").text("Let's go buddy...");
     nextSequence();
     started = true;
   }
 });
-
-/*$(".control").click(function() {
-  if (!started) {
-    $("#level-title").text("Level " + level);
-    nextSequence();
-    started = true;
-  }
-});*/
 
 $(".btn").click(function() {
 
@@ -61,10 +54,19 @@ function checkAnswer(currentLevel) {
       }, 200);
 
       //3. Change the h1 title to say "Game Over, Press Any Key to Restart" if the user got the answer wrong.
-      $("#level-title").text("Game Over, Press Any Key to Restart");
-    }
+      $("#level-title").html("Game Over Bud! 🤣 <br> High Score: "+(level-1)+"<br> Tap Restart for a rematch");
+      startOver();
 
-}
+    }
+  }
+
+  function startOver(){
+    level = 0;
+    gamePattern = [];
+    started = false;
+    $(".start").text("Restart");
+  }
+
 
 function nextSequence() {
 
@@ -77,8 +79,17 @@ function nextSequence() {
   gamePattern.push(randomChosenColour);
 console.log("randomChosenColour ="+randomChosenColour);
 console.log("gamePattern = "+gamePattern);
-  $("#" + randomChosenColour).fadeIn(100).fadeOut(100).fadeIn(100);
-  playSound(randomChosenColour);
+
+//This provides the entie pattern. Fetches data rom the array in time intervals
+  var alertLoop = function(i) {
+      if (gamePattern[i]) {
+        pattern = gamePattern[i];
+        $("#" + pattern).fadeIn(100).fadeOut(100).fadeIn(100);
+        playSound(pattern);
+          setTimeout(function(){alertLoop(i+1);}, 500);
+      }
+  }
+  alertLoop(0);
 }
 
 function playSound(name) {
