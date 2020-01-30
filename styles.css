@@ -6,7 +6,7 @@ body {
 #level-title {
   font-family: 'Press Start 2P', cursive;
   font-size: 2.5rem;
-  margin:  10%;
+  margin:  5%;
   color: #FEF2BF;
 }
 
@@ -68,3 +68,19 @@ body {
   box-shadow: 0 0 20px white;
   background-color: grey;
 }
+
+@media (max-width:991px) {
+#level-title{
+  line-height: 2;
+  margin:  10%;
+}
+.footer{
+  font-size: 1.5rem;
+}
+.btn{
+   height: 250px;
+   width: 250px;
+}
+}
+
+
