@@ -7,3 +7,5 @@ It made using HTML5, some basic CSS, and JQuery.
 
 How to play:
 Try to keep up with the pattern from the start.
+
+Wanna have fun?   alex-maina.github.io/memory-jog 
