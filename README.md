@@ -8,4 +8,4 @@ It made using HTML5, some basic CSS, and JQuery.
 How to play:
 Try to keep up with the pattern from the start.
 
-Wanna have fun?  https://alex-maina.github.io/memory-jog/
+Wanna have fun?  https://mainakimani.github.io/memory-jog/
